@@ -1,0 +1,6 @@
+CREATE VIEW BookOrdersSummary AS
+SELECT b.Title, a.Name AS AuthorName, SUM(o.Quantity) AS TotalSold
+FROM books b
+JOIN authors a ON b.AuthorID = a.AuthorID
+JOIN orders o ON b.BookID = o.BookID
+GROUP BY b.Title, a.Name;

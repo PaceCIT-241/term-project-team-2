@@ -1,0 +1,4 @@
+﻿BookID,Title,AuthorID,PublisherID,Genre,Price,Stock
+1,The Lost Time,101,201,Fiction,12.99,23
+2,Deep Dive into Python,102,202,Programmin,35.5,12
+3,History of Tomorrow,103,201,Non-Fiction,18.75,5

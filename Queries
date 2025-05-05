@@ -1,0 +1,16 @@
+SELECT * FROM authors LIMIT 100;
+SELECT * FROM publishers LIMIT 100;
+SELECT * FROM customers LIMIT 100;
+SELECT * FROM books LIMIT 100;
+SELECT * FROM orders LIMIT 100;
+
+SELECT b.BookID, b.Title, a.Name AS AuthorName
+FROM books b
+JOIN authors a ON b.AuthorID = a.AuthorID
+LIMIT 100;
+
+SELECT BookID, SUM(Quantity) AS TotalSold
+FROM orders
+GROUP BY BookID
+ORDER BY TotalSold DESC
+LIMIT 100;
