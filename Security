@@ -1,3 +1,4 @@
+-- Active: 1746456444981@@127.0.0.1@3306@bookstore
 -- Step 1: Create the users
 CREATE USER 'user1'@'%' IDENTIFIED BY 'password1';
 CREATE USER 'user2'@'%' IDENTIFIED BY 'password2';

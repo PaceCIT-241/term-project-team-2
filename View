@@ -1,3 +1,4 @@
+-- Active: 1746456444981@@127.0.0.1@3306@bookstore
 CREATE VIEW BookOrdersSummary AS
 SELECT b.Title, a.Name AS AuthorName, SUM(o.Quantity) AS TotalSold
 FROM books b

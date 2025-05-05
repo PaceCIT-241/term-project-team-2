@@ -1,3 +1,4 @@
+-- Active: 1746456444981@@127.0.0.1@3306@bookstore
 INSERT INTO authors (AuthorID, Name, Country) VALUES
 (1001, 'Christine Pugh', 'Guam'),
 (1002, 'Nicholas Flores', 'San Marino'),
