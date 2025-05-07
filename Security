@@ -3,18 +3,25 @@
 CREATE USER 'user1'@'%' IDENTIFIED BY 'password1';
 CREATE USER 'user2'@'%' IDENTIFIED BY 'password2';
 
--- Step 2: Grant SELECT privileges on the necessary tables
-GRANT SELECT ON BookStore.authors TO 'user1'@'%';
-GRANT SELECT ON BookStore.publishers TO 'user1'@'%';
-GRANT SELECT ON BookStore.customers TO 'user1'@'%';
-GRANT SELECT ON BookStore.books TO 'user1'@'%';
-GRANT SELECT ON BookStore.orders TO 'user1'@'%';
+-- Read-only role
+CREATE ROLE 'read_only';
 
-GRANT SELECT ON BookStore.authors TO 'user2'@'%';
-GRANT SELECT ON BookStore.publishers TO 'user2'@'%';
-GRANT SELECT ON BookStore.customers TO 'user2'@'%';
-GRANT SELECT ON BookStore.books TO 'user2'@'%';
-GRANT SELECT ON BookStore.orders TO 'user2'@'%';
+-- Admin role (for full access; customize as needed)
+CREATE ROLE 'admin';
+
+-- Grant SELECT to read_only role
+GRANT SELECT ON BookStore.authors TO 'read_only';
+GRANT SELECT ON BookStore.publishers TO 'read_only';
+GRANT SELECT ON BookStore.customers TO 'read_only';
+GRANT SELECT ON BookStore.books TO 'read_only';
+GRANT SELECT ON BookStore.orders TO 'read_only';
+
+-- Grant ALL privileges to admin (adjust if needed)
+GRANT ALL PRIVILEGES ON BookStore.* TO 'admin';
+
+-- Assign read_only role to both users
+GRANT 'read_only' TO 'user1'@'%';
+GRANT 'read_only' TO 'user2'@'%';
 
 -- Step 3: Apply changes
 FLUSH PRIVILEGES;
